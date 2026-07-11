@@ -1,0 +1,26 @@
+.portfolio {
+  position: relative;
+  min-height: 100vh;
+  background: var(--bg-void);
+}
+
+.portfolio__bg-waves {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  transition: opacity 0.2s linear;
+  will-change: opacity;
+}
+
+.portfolio__bg-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.2s linear;
+  will-change: opacity;
+}

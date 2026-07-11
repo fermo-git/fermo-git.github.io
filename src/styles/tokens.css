@@ -1,0 +1,57 @@
+:root {
+  /* Superficies */
+  --bg-void: #07040f;
+  --bg-nebula: #120a26;
+  --bg-nebula-soft: #1a1033;
+
+  /* Paleta nebulosa: morado / índigo / violeta */
+  --violet-500: #8b5cf6;
+  --violet-300: #c4b5fd;
+  --violet-200: #ddd6fe;
+  --indigo-500: #6366f1;
+  --indigo-400: #818cf8;
+  --fuchsia-400: #e879f9;
+  --fuchsia-300: #f0abfc;
+
+  /* Texto */
+  --text-primary: #f6f3ff;
+  --text-muted: rgba(246, 243, 255, 0.6);
+  --text-faint: rgba(246, 243, 255, 0.38);
+
+  /* Tipografía */
+  --font-display: 'Nunito', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+
+  /* Ritmo */
+  --ease-portal: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-void);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

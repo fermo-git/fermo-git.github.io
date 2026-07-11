@@ -1,0 +1,161 @@
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 180px;
+  gap: 1.1rem;
+}
+
+.experience-card {
+  height: 100%;
+}
+
+.experience-card--lg {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.experience-card--tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.experience-card--md {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+.experience-card__body {
+  padding: 1.5rem 1.65rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.35rem;
+}
+
+.experience-card__period {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fuchsia-300);
+}
+
+.experience-card__role {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text-primary);
+}
+
+.experience-card__place {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--violet-300);
+}
+
+.experience-card__desc {
+  margin: 0.35rem 0 0;
+  font-size: 0.83rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+  overflow: hidden;
+}
+
+/* Tarjetas cuyo texto se corta en 1 fila fija: se expanden hacia abajo al hover,
+   con una animación de ease lenta y suave (nada de saltos bruscos). */
+.experience-card--expandable {
+  align-self: start;
+  max-height: 180px;
+  overflow: hidden;
+  transition:
+    max-height 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s ease,
+    z-index 0s 0.7s;
+}
+
+.experience-card--expandable .experience-card__body {
+  overflow: hidden;
+}
+
+.experience-card--expandable:hover {
+  max-height: 480px;
+  z-index: 15;
+  transition:
+    max-height 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.6s ease,
+    z-index 0s;
+  box-shadow:
+    0 20px 45px -12px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.experience-card--expandable:hover .experience-card__body,
+.experience-card--expandable:hover .experience-card__desc,
+.experience-card--expandable:hover .border-glow-inner {
+  overflow: visible;
+}
+
+/* Tarjeta destacada: formación en curso */
+.experience-card--highlight {
+  border: 1px solid rgba(250, 204, 21, 0.25);
+}
+
+.experience-card--highlight .experience-card__role {
+  background: linear-gradient(90deg, var(--fuchsia-400), #facc15);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.experience-card--highlight .experience-card__place {
+  color: #facc15;
+}
+
+.experience-card__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  align-self: flex-start;
+  margin-bottom: 0.35rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1a1033;
+  background: linear-gradient(90deg, #facc15, #f0abfc);
+}
+
+.experience-card__badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1a1033;
+  animation: badge-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes badge-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@media (max-width: 860px) {
+  .experience-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .experience-card--lg,
+  .experience-card--tall,
+  .experience-card--md {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+}
